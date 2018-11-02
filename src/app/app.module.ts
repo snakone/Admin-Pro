@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { FormsModule } from '@angular/forms';
+
 // Custom Modules
 import { PagesModule } from './pages/pages.module';
 
@@ -15,13 +17,14 @@ import { RegisterComponent } from './login/register/register.component';
   declarations: [
     AppComponent,
     SignInComponent,
-    Error404Component,
+    Error404Component,  // Page Not Found
     RegisterComponent
   ],
   imports: [
     BrowserModule,
-    PagesModule,
+    PagesModule,  // Load Pages fisrt with Child Routes
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

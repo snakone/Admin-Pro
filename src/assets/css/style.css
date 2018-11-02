@@ -412,6 +412,10 @@ Thumb size
 
 .hide {
   display: none; }
+  
+.menu-title {
+ margin-left: 15px; }
+
 
 .img-circle {
   border-radius: 100%; }
@@ -772,7 +776,7 @@ use profile section
 .sidebar-nav .user-profile > a img {
   width: 30px;
   border-radius: 100%;
-  margin-right: 15px;
+  margin-right: 20px;
  }
  
  .icon {
@@ -1007,7 +1011,7 @@ File: scss
 
 .page-wrapper {
   background: #f4f6f9;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
   position: relative; }
 
 .container-fluid {
@@ -1032,7 +1036,7 @@ File: scss
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); }
 
 .fix-header .page-wrapper {
-  padding-top: 70px; }
+  padding-top: 50px; }
 
 .fix-header .right-side-panel {
   top: 70px;
@@ -5809,7 +5813,7 @@ File: scss
   /*Sidebar and wrapper*/
   .mini-sidebar .page-wrapper {
     margin-left: 0px;
-    padding-top: 70px; }
+    padding-top: 50px; }
   .comment-text .comment-footer .action-icons {
     display: block;
     padding: 10px 0; }

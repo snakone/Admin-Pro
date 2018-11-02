@@ -2,13 +2,20 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
 
+import { FormsModule } from '@angular/forms';
+
+import { ChartsModule } from 'ng2-charts';
+
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages.routes';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
-import { Grafics1Component } from './grafics1/grafics1.component';
+import { Chart1Component } from './chart1/chart1.component';
 
+import { PlusLessComponent } from '../components/plus-less/plus-less.component';
+import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-chart.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -16,17 +23,24 @@ import { Grafics1Component } from './grafics1/grafics1.component';
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Grafics1Component
+    Chart1Component,
+    PlusLessComponent,
+    DoughnutChartComponent,
+    AccountSettingsComponent
   ],
   exports: [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Grafics1Component
+    Chart1Component,
+    PlusLessComponent,
+    DoughnutChartComponent
   ],
   imports: [
     SharedModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
+    ChartsModule
   ]
 })
 

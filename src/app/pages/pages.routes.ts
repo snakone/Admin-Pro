@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
-import { Grafics1Component } from './grafics1/grafics1.component';
+import { Chart1Component } from './chart1/chart1.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 const PagesRoutes: Routes = [
   {
@@ -12,14 +13,15 @@ const PagesRoutes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'progress', component: ProgressComponent },
-      { path: 'graficas1', component: Grafics1Component },
-      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+      { path: 'charts', component: Chart1Component },
+      { path: 'account-settings', component: AccountSettingsComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(PagesRoutes)],
+  imports: [RouterModule.forChild(PagesRoutes)],  // Child Routes
   exports: [RouterModule]
 })
 
