@@ -1,4 +1,5 @@
 @import '../../scss/login';
+@import '../../scss/colors';
 
 .error {
   color:red;
@@ -12,6 +13,11 @@
 
 .success-line {
   background-image: -webkit-linear-gradient(#00ff00, #00ff00), -webkit-linear-gradient(#00ff00, #00ff00)!important;
+}
+
+
+.checkbox {
+  margin-right: 10px;
 }
 
 .btn:disabled {

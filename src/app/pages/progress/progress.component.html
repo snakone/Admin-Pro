@@ -3,18 +3,19 @@
     <div class="card">
       <div class="card-body">
         <div class="card-title">Progress Bar</div>
-        <div class="progress">
+        <div class="progress">  <!-- Blue Progress -->
           <div class="progress-bar progress-bar-striped progress-bar-animated"
           role="progressbar" aria-valuemin="0" aria-valuemax="100"
           [attr.aria-valuenow]="progress1" [style.width]="progress1 + '%'"></div>
+          <!-- Setting Custom HTML Attributes (aria-valuenow) -->
         </div>
         <br>
-        <div class="progress">
+        <div class="progress">  <!-- Green Progress -->
           <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
           role="progressbar" aria-valuemin="0" aria-valuemax="100"
           [attr.aria-valuenow]="progress2" [style.width]="progress2 + '%'"></div>
+          <!-- Setting Custom HTML Attributes (aria-valuenow) -->
         </div>
-
       </div>
     </div>
   </div>
@@ -23,7 +24,7 @@
 <div class="row">
   <div class="col-6">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body">  <!-- Add & Remove Component -->
         <app-plus-less (sendValue)="progress1 = $event"
         leyend="Blue Progress" [progress]="progress1"></app-plus-less>
       </div>
@@ -31,7 +32,7 @@
   </div>
   <div class="col-6">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body">  <!-- Add & Remove Component -->
         <app-plus-less (sendValue)="progress2 = $event"
         leyend="Green Progress" [progress]="progress2"></app-plus-less>
       </div>

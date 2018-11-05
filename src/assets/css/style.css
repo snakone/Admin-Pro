@@ -46,8 +46,8 @@ File: scss
  *  8. Custom Templates
  */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
-/******************* 
-Global Styles 
+/*******************
+Global Styles
 *******************/
 @import url(../scss/icons/font-awesome/css/font-awesome.min.css);
 @import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);
@@ -92,6 +92,10 @@ a.link {
 
 .img-rounded {
   border-radius: 4px; }
+
+  aside {
+	  opacity: .95;
+  }
 
 html body .mdi:before,
 html body .mdi-set {
@@ -231,7 +235,8 @@ html body .p-b-10 {
   padding-bottom: 10px; }
 
 html body .p-b-20 {
-  padding-bottom: 20px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 html body .p-b-30 {
   padding-bottom: 30px; }
@@ -412,7 +417,7 @@ Thumb size
 
 .hide {
   display: none; }
-  
+
 .menu-title {
  margin-left: 15px; }
 
@@ -710,6 +715,7 @@ Layouts
 .card-no-border .card {
   border: 0px;
   border-radius: 0px;
+  border-radius: 10px;
   -webkit-box-shadow: none;
   box-shadow: none; }
 
@@ -778,15 +784,19 @@ use profile section
   border-radius: 100%;
   margin-right: 20px;
  }
- 
+
+ .user-profile {
+	 min-height: 60px;
+ }
+
  .icon {
   margin-right: 15px;
  }
- 
+
  .dropdown-menu-right i {
   margin-right: 15px;
  }
-  
+
 .sidebar-nav .user-profile > ul {
   padding-left: 40px; }
 
@@ -989,8 +999,8 @@ File: scss
 /*Light colors*/
 /*Normal Color*/
 /*Extra Variable*/
-/*============================================================== 
- For all pages 
+/*==============================================================
+ For all pages
  ============================================================== */
 #main-wrapper {
   width: 100%;
@@ -1746,6 +1756,10 @@ Other comon js for all pages
 
 .single-column .page-wrapper {
   margin-left: 0px !important; }
+
+  .nav-link {
+	  padding: 0;
+  }
 
 .profile-tab li a.nav-link,
 .customtab li a.nav-link {
@@ -2512,7 +2526,7 @@ Buttons
   color: #ffffff;
   background-color: #171515; }
 
-/*============================================================== 
+/*==============================================================
  Buttons page
  ============================================================== */
 .button-group .btn {
@@ -2663,7 +2677,7 @@ Form summernote
 .label {
   display: inline-block; }
 
-/*============================================================== 
+/*==============================================================
 Form addons page
 ============================================================== */
 /*Bootstrap select*/
@@ -2710,7 +2724,7 @@ Form addons page
 .input-form .btn {
   padding: 8px 12px; }
 
-/*============================================================== 
+/*==============================================================
 Form Material page
  ============================================================== */
 /*Material inputs*/
@@ -2731,9 +2745,9 @@ Form Material page
 .form-material .form-control.focus,
 .form-material .form-control:focus {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#398bf7), to(#398bf7)), -webkit-gradient(linear, left top, left bottom, from(#e9edf2), to(#e9edf2));
-  background-image: -webkit-linear-gradient(#398bf7, #398bf7), -webkit-linear-gradient(#e9edf2, #e9edf2);
-  background-image: -o-linear-gradient(#398bf7, #398bf7), -o-linear-gradient(#e9edf2, #e9edf2);
-  background-image: linear-gradient(#398bf7, #398bf7), linear-gradient(#e9edf2, #e9edf2);
+  background-image: -webkit-linear-gradient(#00ff00, #00ff00), -webkit-linear-gradient(#e9edf2, #e9edf2);
+  background-image: -o-linear-gradient(#00ff00, #00ff00), -o-linear-gradient(#e9edf2, #e9edf2);
+  background-image: linear-gradient(#00ff00, #00ff00), linear-gradient(#e9edf2, #e9edf2);
   border: 0 none;
   border-radius: 0;
   -webkit-box-shadow: none;
@@ -2757,16 +2771,16 @@ Form Material page
   padding-left: 0px;
   border-bottom: 1px solid #f6f9ff; }
   .form-control-line .form-control:focus {
-    border-bottom: 1px solid #398bf7; }
+    border-bottom: 1px solid #00ff00; }
 
 /*******************
-Form validation error 
+Form validation error
 ******************/
 .error .help-block {
   color: #fb3a3a; }
 
 /*******************
-File Upload 
+File Upload
 ******************/
 .fileupload {
   overflow: hidden;
@@ -2783,7 +2797,7 @@ File Upload
     top: 0; }
 
 /*******************
-This is for the checkbox radio button and switch 
+This is for the checkbox radio button and switch
 ******************/
 /* Radio Buttons
    ========================================================================== */
@@ -3280,7 +3294,7 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
   display: inline-block; }
 
 [type="checkbox"] + label {
-  padding-left: 26px;
+  padding-left: 35px;
   height: 25px;
   line-height: 21px;
   font-weight: normal; }
@@ -5667,8 +5681,8 @@ Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: scss
 */
-/*============================================================== 
- For Laptop & above all (1650px) 
+/*==============================================================
+ For Laptop & above all (1650px)
  ============================================================== */
 @media (min-width: 1650px) {
   .widget-app-columns {
@@ -5688,8 +5702,8 @@ File: scss
   .auto-height {
     min-height: 240px; } }
 
-/*============================================================== 
- For Laptop & above all (1370px) 
+/*==============================================================
+ For Laptop & above all (1370px)
  ============================================================== */
 @media (max-width: 1370px) {
   .widget-app-columns {
@@ -5701,8 +5715,8 @@ File: scss
   .auto-height {
     min-height: 186px; } }
 
-/*-- ============================================================== 
- Small Desktop & above all (1024px) 
+/*-- ==============================================================
+ Small Desktop & above all (1024px)
  ============================================================== */
 @media (min-width: 1024px) {
   .page-wrapper {
@@ -5736,8 +5750,8 @@ File: scss
       display: -ms-flexbox !important;
       display: flex !important; } }
 
-/*-- ============================================================== 
- Ipad & above all(768px) 
+/*-- ==============================================================
+ Ipad & above all(768px)
  ============================================================== */
 @media (min-width: 768px) {
   .navbar-header {
@@ -5765,8 +5779,8 @@ File: scss
     flex-wrap: nowrap !important;
     -webkit-flex-wrap: nowrap !important; } }
 
-/*-- ============================================================== 
- Phone and below ipad(767px) 
+/*-- ==============================================================
+ Phone and below ipad(767px)
  ============================================================== */
 @media (max-width: 767px) {
   .container-fluid {
@@ -5803,8 +5817,8 @@ File: scss
             width: 100%;
             margin-top: 0px; }
         .topbar .top-navbar .navbar-nav > .nav-item > .nav-link {
-          padding-left: .50rem;
-          padding-right: .50rem; }
+          padding-left: auto;
+          padding-right: auto; }
         .topbar .top-navbar .navbar-nav .dropdown-menu {
           position: absolute; }
   .mega-dropdown .dropdown-menu {

@@ -1,0 +1,80 @@
+<section id="wrapper">
+  <div class="login-register">
+    <div class="login-box card animated slideInLeft">
+      <div class="card-body">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()"
+         class="form-horizontal form-material" id="loginform">
+            <h3 class="box-title m-b-20">Registro</h3>
+
+            <div class="form-group">
+                <div class="col-xs-12">  <!-- NAME -->
+                    <input formControlName="name" name="name"
+                    class="form-control" type="text" required placeholder="Nombre"
+                    [ngClass]="signUpForm.controls.name.invalid == true ? 'error-line' : 'success-line'">
+                  <div *ngIf="signUpForm.controls.name.invalid && !signUpForm.controls.name.pristine">
+                    <span class="error">Introduce un nombre válido. (5-25 caracteres)</span>
+                  </div>
+              </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-xs-12">  <!-- EMAIL -->
+                    <input formControlName="email" name="email"
+                    class="form-control" type="email" required placeholder="Correo"
+                    [ngClass]="signUpForm.controls.email.invalid == true ? 'error-line' : 'success-line'">
+                  <div *ngIf="signUpForm.controls.email.invalid && !signUpForm.controls.email.pristine">
+                    <span class="error">Introduce un email válido. (5 y 35 caracteres)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group ">
+                  <div class="col-xs-12">  <!-- PASSWORD -->
+                      <input formControlName="password" name="password"
+                      class="form-control" type="password" required placeholder="Contraseña"
+                      [ngClass]="signUpForm.controls.password.invalid == true ? 'error-line' : 'success-line'">
+                    <div *ngIf="signUpForm.controls.password.invalid && !signUpForm.controls.password.pristine">
+                      <span class="error">Introduce una contraseña. (5 y 25 caracteres)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group ">
+                    <div class="col-xs-12">  <!-- PASSWORD MATCH -->
+                        <input formControlName="passwordMatch" name="passwordMatch"
+                        class="form-control" type="password" required placeholder="Repite Contraseña"
+                        [ngClass]="signUpForm.errors == true ||
+                                   signUpForm.controls.passwordMatch.invalid == true ? 'error-line' : 'success-line'">
+                      <div *ngIf="signUpForm.errors && !signUpForm.controls.passwordMatch.pristine">
+                        <span class="error">La contraseñas no coinciden!</span>
+                      </div>
+                    </div>
+                  </div>
+
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <div class="checkbox checkbox-success p-t-0">   <!-- CHECK BOX -->
+                        <input formControlName="conditions" name="conditions" id="checkbox-signup"
+                        type="checkbox" class="filled-in chk-col-light-blue checkbox">
+                        <label for="checkbox-signup"> Acepto todos los <a href="">Términos</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-center p-b-20">
+                <div class="col-xs-12">
+                    <button class="btn btn-info btn-lg btn-block
+                                  btn-rounded text-uppercase waves-effect waves-light"
+                                  type="submit" [disabled]="disabled">Regístrate!</button>
+                </div>
+            </div>
+            <div class="form-group m-b-0">
+                <div class="col-sm-12 text-center">
+                    ¿Ya tienes una cuenta? <a routerLink="/signin" class="text-info m-l"><b>Ingresa</b></a>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

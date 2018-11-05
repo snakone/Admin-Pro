@@ -12,27 +12,27 @@ export class AccountSettingsComponent implements OnInit {
   constructor(private _settings: SettingsService) { }
 
   ngOnInit() {
-    this.applyCheck();
+    this.applyCheckMark();  // Check Current Theme and set Mark on it
   }
 
-  changeTheme(color: string, theme: any){
-    this.checkTheme(theme)
-    this._settings.setSettings(color);
+  changeTheme(theme: string, element: HTMLElement){
+    this._settings.setSettings(theme);  // Set Theme to localStorage
+    this.checkThemeMark(element);
   }
 
-  checkTheme(theme: any){
-    let selectors: any = document.getElementsByClassName("selector")
+  checkThemeMark(theme: HTMLElement){  // Apply Current Theme Mark into the selected Theme
+    let selectors: any = document.getElementsByClassName("selector")  // Get All Buttons
     for (let ref of selectors){
       ref.classList.remove('working');
     }
     theme.classList.add('working');
   }
 
-  applyCheck(){
+  applyCheckMark(){  // Same as checkThemeMark() but OnInit
     let selectors: any = document.getElementsByClassName("selector")
     let theme = this._settings.settings.theme;
     for (let ref of selectors){
-      if (ref.getAttribute('data-theme') === theme){
+      if (ref.getAttribute('data-theme') === theme){  // Custom HTML Attribute
         ref.classList.add('working')
         break;
       }

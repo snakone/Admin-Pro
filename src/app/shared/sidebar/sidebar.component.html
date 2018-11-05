@@ -1,39 +1,37 @@
-<aside class="left-sidebar">
-   <!-- Sidebar scroll-->
-   <div class="scroll-sidebar">
-       <!-- Sidebar navigation-->
+<aside class="left-sidebar">  <!-- Sidebar scroll-->
+   <div class="scroll-sidebar">  <!-- Sidebar navigation-->
    <nav class="sidebar-nav">
        <ul id="sidebarnav">
-         <li class="user-profile">
-         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+         <li class="user-profile">  <!-- Account Menu -->
+         <a #account class="has-arrow waves-effect waves-dark animated zoomIn faster" aria-expanded="true">
            <img src="../assets/images/users/profile.png" alt="user"/>
-           <span class="hide-menu"> Steave Jobs </span></a>
-             <ul aria-expanded="false" class="collapse">
-               <li><a  (click)="closeBar()" routerLink="/dashboard" routerLinkActive="active">My Profile </a></li>
+           <span class="hide-menu">Steave Jobs</span></a>
+             <ul aria-expanded="true" class="collapse">
+               <li><a (click)="closeBar(account)" routerLink="/dashboard" routerLinkActive="active">My Profile</a></li>
                <li><a href="javascript:void()">My Balance</a></li>
                <li><a href="javascript:void()">Inbox</a></li>
-               <li><a  (click)="closeBar()" routerLink="/account-settings" routerLinkActive="active">Account Setting</a></li>
-               <li><a routerLink="/login">Logout</a></li>
+               <li><a (click)="closeBar(account)" routerLink="/account-settings" routerLinkActive="active">Account Setting</a></li>
+               <li><a (click)="logOut()">Logout</a></li>
              </ul>
          </li>
-         <li class="nav-devider"></li>
+
+         <li  class="nav-devider"></li>
+
          <li class="nav-small-cap">PERSONAL</li>
-         <li *ngFor="let menu of _sidebar.menu">
+         <li *ngFor="let menu of _sidebar.menu" class="animated zoomIn faster" #profile>  <!-- NgFor Menu -->
            <a class="has-arrow waves-effect waves-dark" aria-expanded="true">
              <i [class]="menu.icon"></i>
-             <span class="hide-menu menu-title"> {{menu.title}}
+             <span class="hide-menu menu-title">{{menu.title}}
                <span class="label label-rouded label-themecolor pull-right">{{menu.subMenu.length}}</span>
              </span>
            </a>
              <ul aria-expanded="true" class="collapse">
                <li *ngFor="let subMenu of menu.subMenu">
-                 <a (click)="closeBar()" [routerLink]="[subMenu.URL]" routerLinkActive="active">{{subMenu.title}}</a>
+                 <a (click)="closeBar(profile)" [routerLink]="[subMenu.URL]" routerLinkActive="active">{{subMenu.title}}</a>
                </li>
              </ul>
           </li>
        </ul>
-   </nav>
-       <!-- End Sidebar navigation -->
-   </div>
-   <!-- End Sidebar scroll-->
+   </nav>  <!-- End Sidebar navigation -->
+   </div>  <!-- End Sidebar scroll-->
  </aside>

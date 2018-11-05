@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chart1',
-  templateUrl: './chart1.component.html',
+  selector: 'app-chart',
+  templateUrl: './chart.component.html',
   styles: []
 })
 
-export class Chart1Component implements OnInit {
+export class ChartComponent implements OnInit {
 
-  graficos: any = {
-    'grafico1': {
+  charts: any = {  // Charts DATA
+    'chart1': {
       'labels': ['Con Frijoles', 'Con Natilla', 'Con tocino'],
       'data':  [24, 30, 46],
       'type': 'doughnut',
-      'leyenda': 'El pan se come con'
+      'leyend': 'El pan se come con'
     },
-    'grafico2': {
+    'chart2': {
       'labels': ['Hombres', 'Mujeres'],
       'data':  [4500, 6000],
       'type': 'doughnut',
-      'leyenda': 'Entrevistados'
+      'leyend': 'Entrevistados'
     },
-    'grafico3': {
+    'chart3': {
       'labels': ['Si', 'No'],
       'data':  [95, 5],
       'type': 'doughnut',
-      'leyenda': '¿Le dan gases los frijoles?'
+      'leyend': '¿Le dan gases los frijoles?'
     },
-    'grafico4': {
+    'chart4': {
       'labels': ['No', 'Si'],
       'data':  [85, 15],
       'type': 'doughnut',
-      'leyenda': '¿Le importa que le den gases?'
+      'leyend': '¿Le importa que le den gases?'
     },
   };
 

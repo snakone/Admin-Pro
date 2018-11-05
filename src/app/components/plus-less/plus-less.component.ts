@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output,
+         EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-plus-less',
@@ -8,38 +9,38 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef }
 
 export class PlusLessComponent implements OnInit {
 
-  @ViewChild("inputprogress") inputProgress: ElementRef;
+  @ViewChild("inputprogress") inputProgress: ElementRef;  // Input HTML Number
 
-  @Input() progress: number = 50;
-  @Input() leyend: string = "Legend";
+  @Input() progress: number;
+  leyend: string = "Legend";
 
-  @Output() sendValue: EventEmitter<number> = new EventEmitter();
+  @Output() sendValue: EventEmitter<number> = new EventEmitter();  // Value to Send Outside
   constructor() { }
 
   ngOnInit() {
   }
 
-  onChange(newValue: number){
-    if (newValue >= 100){
+  onChange(newValue: number){  // Change Value via HTML Input
+    if (newValue >= 100){  // Value Between 100 and 0
       this.progress = 100;
     } else if (newValue <=0){
       this.progress = 0;
-    } else {
-      this.sendValue.emit(newValue);
     }
-      this.inputProgress.nativeElement.value = this.progress;
-      this.sendValue.emit(this.progress);
+      //  Avoid numbers above 100 or below 0;
+      //  If We put "105" manually, it will become the Progress Value instead, 100
+        this.inputProgress.nativeElement.value = this.progress;
+        this.sendValue.emit(this.progress);
   }
 
-  changeProgress(num:number){
-    if (this.progress <= 0 && num < 0) {
+  changeProgress(num:number){  // Change Value via + - Buttons
+    if (this.progress <= 0 && num < 0) {  // Progress Bar Between 100 and 0
       this.progress = 0;
       return;
     }
     if (this.progress >= 100 && num > 0){
        this.progress = 100; return;
     }
-    this.progress += num;
+    this.progress += num;  // Plus & Emite Progress
     this.sendValue.emit(this.progress);
     this.inputProgress.nativeElement.focus();
   }

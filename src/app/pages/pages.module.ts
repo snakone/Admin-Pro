@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
-
 import { FormsModule } from '@angular/forms';
-
-import { ChartsModule } from 'ng2-charts';
 
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages.routes';
 
+// Pages
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
-import { Chart1Component } from './chart1/chart1.component';
+import { ChartComponent } from './chart/chart.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
+// Components
 import { PlusLessComponent } from '../components/plus-less/plus-less.component';
 import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-chart.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
+
+// 3rd Libraries
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -23,16 +27,18 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Chart1Component,
+    ChartComponent,
     PlusLessComponent,
     DoughnutChartComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    PromisesComponent,
+    RxjsComponent
   ],
   exports: [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Chart1Component,
+    ChartComponent,
     PlusLessComponent,
     DoughnutChartComponent
   ],
