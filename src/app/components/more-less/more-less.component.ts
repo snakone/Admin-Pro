@@ -2,17 +2,17 @@ import { Component, OnInit, Input, Output,
          EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-plus-less',
-  templateUrl: './plus-less.component.html',
-  styles: []
+  selector: 'app-more-less',
+  templateUrl: './more-less.component.html',
+  styleUrls: ['./more-less.component.scss']
 })
 
-export class PlusLessComponent implements OnInit {
+export class MoreLessComponent implements OnInit {
 
   @ViewChild("inputprogress") inputProgress: ElementRef;  // Input HTML Number
 
   @Input() progress: number;
-  leyend: string = "Legend";
+  @Input() leyend: string;
 
   @Output() sendValue: EventEmitter<number> = new EventEmitter();  // Value to Send Outside
   constructor() { }

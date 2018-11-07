@@ -11,7 +11,6 @@ export class SidebarService {
       title: "Principal",
       icon: "mdi mdi-gauge",
       subMenu: [
-        { title: "Dashboard", URL: '/dashboard' },
         { title: "Progress", URL: '/progress' },
         { title: "Charts", URL: '/charts' },
         { title: "Promises", URL: '/promises'},

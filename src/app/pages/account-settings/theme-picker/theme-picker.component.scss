@@ -1,0 +1,22 @@
+#themecolors a:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+  transform:scale(1.1);
+}
+
+.center {
+  display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.selector {
+  border-radius: 5px;
+  max-width: 36px;
+  max-height: 36px;
+  margin: auto 1px;
+}

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService, UserService } from 'src/app/services/services.index';
+import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2'
 
 declare function closeSideBar();
 
@@ -11,10 +15,14 @@ declare function closeSideBar();
 
 export class SidebarComponent implements OnInit {
 
+  user: User;
+
   constructor(public _sidebar: SidebarService,
-              private _user: UserService) { }
+              public _user: UserService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.user = this._user.user;
     closeSideBar();  // Close SideBar on Init to reset the State.
   }
 
@@ -29,11 +37,15 @@ export class SidebarComponent implements OnInit {
         setTimeout(()=> {  // Despite this is bad, It was the only solution I got
             element.style.display = "block";
         }, 200);
-
   }
 
-  logOut():void{
-    this._user.userLogOut();
+  logOut():void {
+    if (this._user.userLogOut()){
+      Swal('Acabas de salir!', 'Esperamos verte pronto!', 'info')
+       .then(() => {
+         this.router.navigate(['/signin']);
+       });
+    }
   }
 
 }

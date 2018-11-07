@@ -8,3 +8,28 @@ a:hover {
   color: #139fe5;
   cursor: pointer;
 }
+
+.material-icons {
+  margin-top: -1px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.logout:hover {
+  color: red!important;
+  font-weight: bold;
+}
+
+.marginTop {
+  margin-top: 35px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:disabled {
+  background: grey;
+}

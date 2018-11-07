@@ -1,11 +1,11 @@
 <h6> {{ leyend }} </h6>
 <div class="input-group">
   <span class="input-group-btn">
-      <i (click)="changeProgress(5)" class="material-icons">add_circle</i>
+      <i (click)="changeProgress(5)" class="material-icons more">add_circle</i>
   </span>
   <input #inputprogress type="number" name="progress" [(ngModel)]="progress" (ngModelChange)="onChange($event)"
-  class="form-control ml-1 mr-1" min="1" max="100">
+  class="form-control ml-1 mr-1 text-center" min="1" max="100">
   <span class="input-group-btn">
-      <i (click)="changeProgress(-5)" class="material-icons">remove_circle</i>
+      <i (click)="changeProgress(-5)" class="material-icons less">remove_circle</i>
   </span>
 </div>

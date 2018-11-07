@@ -21,7 +21,7 @@ import { Error404Component } from './error404/error404.component';
     AppComponent,
     SignInComponent,
     SignUpComponent,
-    Error404Component,  // Page Not Found
+    Error404Component  // Page Not Found
   ],
   imports: [
     BrowserModule,

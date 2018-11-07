@@ -6,6 +6,7 @@ import { SettingsService,
          SharedService,
          SidebarService,
          UserService,
+         UploadFileService,
          UserRouteGuard} from './services.index';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SettingsService,
     SharedService,
     SidebarService,
     UserService,
+    UploadFileService,
     UserRouteGuard
   ]
 })

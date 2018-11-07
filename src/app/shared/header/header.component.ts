@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/services.index';
+import { User } from 'src/app/models/user.model';
+
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +13,22 @@ import { UserService } from 'src/app/services/services.index';
 
 export class HeaderComponent implements OnInit {
 
-  constructor(private _user: UserService) { }
+  user: User;
+
+  constructor(public _user: UserService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.user = this._user.user;
   }
 
-  logOut():void{
-    this._user.userLogOut();
+  logOut():void {
+    if (this._user.userLogOut()){
+      Swal('Acabas de salir!', 'Esperamos verte pronto!', 'info')
+       .then(() => {
+         this.router.navigate(['/signin']);
+       });
+    }
   }
 
 }

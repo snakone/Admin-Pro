@@ -10,6 +10,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UserRouteGuard } from '../services/services.index';
+import { ProfileComponent } from './profile/profile.component';
 
 const PagesRoutes: Routes = [
   {
@@ -21,19 +22,22 @@ const PagesRoutes: Routes = [
       { path: 'dashboard', component: DashboardComponent,
         data: { page: "Dashboard", content:"Principal"}  // Send Data to Router so We know anytime where are We.
       },
+      { path: 'profile', component: ProfileComponent,
+        data: { page: "Perfil", content:"Cuenta"}
+      },
       { path: 'progress', component: ProgressComponent,
-        data: { page: "Progreso", content:"Principal"}
+        data: { page: "Progreso", content:"Página"}
       },
       { path: 'charts', component: ChartComponent,
-        data: { page: "Gráficas", content:"Principal"}
+        data: { page: "Gráficas", content:"Página"}
       },
       { path: 'promises', component: PromisesComponent,
-        data: { page: "Promesas", content:"Principal"}
+        data: { page: "Promesas", content:"Página"}
       },
       { path: 'rxjs', component: RxjsComponent,
-        data: { page: "Observables", content:"Principal"}
+        data: { page: "Observables", content:"Página"}
       },
-      { path: 'account-settings', component: AccountSettingsComponent,
+      { path: 'settings', component: AccountSettingsComponent,
         data: { page: "Ajustes", content:"Cuenta"} },
 
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

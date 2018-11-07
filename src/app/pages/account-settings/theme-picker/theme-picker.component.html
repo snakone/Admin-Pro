@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Temas</h4>
+        <h6 class="card-subtitle">Personaliza la página a tu gusto!</h6>
+        <div class="r-panel-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 center">
+              <ul id="themecolors" class="m-t-15">
+                <!-- DEFAULT THEME PALETTE -->
+                  <li><b>Con el sidebar claro</b></li>
+                  <li>
+                    <a #theme1 (click)="changeTheme('default', theme1)"
+                      data-theme="default" class="selector default-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme2 (click)="changeTheme('green', theme2)"
+                      data-theme="green" class="selector green-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme3 (click)="changeTheme('red', theme3)"
+                      data-theme="red" class="selector red-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme4 (click)="changeTheme('blue', theme4)"
+                      data-theme="blue" class="selector blue-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme5 (click)="changeTheme('purple', theme5)"
+                      data-theme="purple" class="selector purple-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme6 (click)="changeTheme('megna', theme6)"
+                      data-theme="megna" class="selector megna-theme"></a>
+                  </li>
+                </ul>
+              </div>
+            <div class="col-sm-12 col-md-6 center">
+                <!-- DARK THEME PALETTE -->
+              <ul id="themecolors" class="m-t-15">
+                  <li><b>Con el sidebar oscuro</b></li>
+                  <li>
+                    <a #theme7 (click)="changeTheme('default-dark', theme7)"
+                      data-theme="default-dark" class="selector default-dark-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme8 (click)="changeTheme('green-dark', theme8)"
+                      data-theme="green-dark" class="selector green-dark-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme9 (click)="changeTheme('red-dark', theme9)"
+                      data-theme="red-dark" class="selector red-dark-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme10 (click)="changeTheme('blue-dark', theme10)"
+                      data-theme="blue-dark" class="selector blue-dark-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme11 (click)="changeTheme('purple-dark', theme11)"
+                      data-theme="purple-dark" class="selector purple-dark-theme"></a>
+                  </li>
+                  <li>
+                    <a #theme12 (click)="changeTheme('megna-dark', theme12)"
+                      data-theme="megna-dark" class="selector megna-dark-theme"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>  <!-- End of Color Palette Picker -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

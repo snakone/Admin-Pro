@@ -12,12 +12,23 @@
                     class="form-control" type="text" required placeholder="Nombre"
                     [ngClass]="signUpForm.controls.name.invalid == true ? 'error-line' : 'success-line'">
                   <div *ngIf="signUpForm.controls.name.invalid && !signUpForm.controls.name.pristine">
-                    <span class="error">Introduce un nombre válido. (5-25 caracteres)</span>
+                    <span class="error">Introduce un nombre válido. (3-20 caracteres)</span>
                   </div>
               </div>
             </div>
 
-            <div class="form-group ">
+            <div class="form-group">
+                <div class="col-xs-12">  <!-- NAME -->
+                    <input formControlName="lastName" name="lastName"
+                    class="form-control" type="text" required placeholder="Apellidos"
+                    [ngClass]="signUpForm.controls.lastName.invalid == true ? 'error-line' : 'success-line'">
+                  <div *ngIf="signUpForm.controls.lastName.invalid && !signUpForm.controls.lastName.pristine">
+                    <span class="error">Introduce un apellido válido. (3-25 caracteres)</span>
+                  </div>
+              </div>
+            </div>
+
+            <div class="form-group">
                 <div class="col-xs-12">  <!-- EMAIL -->
                     <input formControlName="email" name="email"
                     class="form-control" type="email" required placeholder="Correo"
@@ -28,7 +39,7 @@
                 </div>
               </div>
 
-              <div class="form-group ">
+              <div class="form-group">
                   <div class="col-xs-12">  <!-- PASSWORD -->
                       <input formControlName="password" name="password"
                       class="form-control" type="password" required placeholder="Contraseña"
@@ -65,7 +76,7 @@
                 <div class="col-xs-12">
                     <button class="btn btn-info btn-lg btn-block
                                   btn-rounded text-uppercase waves-effect waves-light"
-                                  type="submit" [disabled]="disabled">Regístrate!</button>
+                                  type="submit" [disabled]="signUpForm.invalid">Regístrate!</button>
                 </div>
             </div>
             <div class="form-group m-b-0">

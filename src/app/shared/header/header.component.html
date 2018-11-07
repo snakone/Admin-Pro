@@ -102,35 +102,35 @@
       <li class="nav-item dropdown">  <!-- Profile BOX -->
           <a class="nav-link dropdown-toggle waves-effect waves-dark"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="assets/images/users/1.jpg" alt="user" class="profile-pic"/>
+            <img [src]="_user.user.image | image" alt="user" class="profile-pic"/>
           </a>
           <div class="dropdown-menu dropdown-menu-right animated fadeInDown faster">  <!-- Profile Drop Menu -->
               <ul class="dropdown-user">
                   <li>
                       <div class="dw-user-box">
                           <div class="u-img">
-                            <img src="assets/images/users/1.jpg" alt="user">
+                            <img [src]="_user.user.image | image" alt="user">
                           </div>
                           <div class="u-text">
-                              <h4>Steave Jobs</h4>
-                              <p class="text-muted">varun@gmail.com</p>
-                                <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                              <h5>Bienvenido</h5>  <!-- User NAME -->
+                              <h5 class="text-muted">{{ _user.user.name }}</h5>  <!-- User EMAIL -->
+
                           </div>
                       </div>
                   </li>
                   <li role="separator" class="divider"></li>
-
-                  <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                  <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-                  <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-
-                  <li role="separator" class="divider"></li>
-
-                  <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                  <li><a routerLink="/profile"
+                    routerLinkActive="active"><i class="material-icons">mood</i>Perfil</a></li>
+                  <li><a href="#"><i class="material-icons">card_travel</i>Balance</a></li>
+                  <li><a href="#"><i class="material-icons">mail_outline</i>Mensajes</a></li>
 
                   <li role="separator" class="divider"></li>
 
-                  <li><a (click)="logOut()"><i class="fa fa-power-off"></i> Logout</a></li>
+                  <li><a routerLink="/settings"><i class="material-icons">settings</i>Ajustes</a></li>
+
+                  <li role="separator" class="divider"></li>
+
+                  <li><a class="logout" (click)="logOut()"><i class="material-icons">exit_to_app</i>Salir</a></li>
               </ul>
           </div>
       </li>

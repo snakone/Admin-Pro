@@ -3,22 +3,24 @@
    <nav class="sidebar-nav">
        <ul id="sidebarnav">
          <li class="user-profile">  <!-- Account Menu -->
-         <a #account class="has-arrow waves-effect waves-dark animated zoomIn faster" aria-expanded="true">
-           <img src="../assets/images/users/profile.png" alt="user"/>
-           <span class="hide-menu">Steave Jobs</span></a>
+         <a #account class="has-arrow waves-effect waves-dark" aria-expanded="true">
+           <img [src]="_user.user.image | image" alt="user"/>
+           <span class="hide-menu">{{ _user.user.name }}</span></a>
              <ul aria-expanded="true" class="collapse">
-               <li><a (click)="closeBar(account)" routerLink="/dashboard" routerLinkActive="active">My Profile</a></li>
-               <li><a href="javascript:void()">My Balance</a></li>
-               <li><a href="javascript:void()">Inbox</a></li>
-               <li><a (click)="closeBar(account)" routerLink="/account-settings" routerLinkActive="active">Account Setting</a></li>
-               <li><a (click)="logOut()">Logout</a></li>
+               <li><a (click)="closeBar(account)" routerLink="/profile"
+                 routerLinkActive="active">Perfil</a></li>
+               <li><a href="javascript:void()">Balance</a></li>
+               <li><a href="javascript:void()">Mensajes</a></li>
+               <li><a (click)="closeBar(account)" routerLink="/settings"
+                 routerLinkActive="active">Ajustes</a></li>
+               <li><a class="logout" href="javascript:void()" (click)="logOut()">Salir</a></li>
              </ul>
          </li>
 
          <li  class="nav-devider"></li>
 
          <li class="nav-small-cap">PERSONAL</li>
-         <li *ngFor="let menu of _sidebar.menu" class="animated zoomIn faster" #profile>  <!-- NgFor Menu -->
+         <li *ngFor="let menu of _sidebar.menu" #profile>  <!-- NgFor Menu -->
            <a class="has-arrow waves-effect waves-dark" aria-expanded="true">
              <i [class]="menu.icon"></i>
              <span class="hide-menu menu-title">{{menu.title}}

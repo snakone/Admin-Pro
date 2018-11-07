@@ -34,17 +34,13 @@ export class SignUpComponent implements OnInit {
     //   conditions: true
     // })
 
-    this.signUpForm.valueChanges.pipe(debounceTime(1000))
-      .subscribe(() => {
-        this.signUpForm.valid ? this.disabled = false : this.disabled = true;
-      });
   }
 
   theyMatchError(one: string, two: string){
     return (group: FormGroup) => {
-      let pass = group.controls[one].value;
-      let passMatch = group.controls[two].value;
-      if (pass === passMatch) return null;
+      let password = group.controls[one].value;
+      let passwordMatch = group.controls[two].value;
+      if (password === passwordMatch) return null;
       return {
         theyMatch : true
       };
@@ -55,9 +51,14 @@ export class SignUpComponent implements OnInit {
     this.signUpForm = new FormGroup({
       name: new FormControl(null, [  // NAME
                                    Validators.required,
-                                   Validators.minLength(5),
-                                   Validators.maxLength(25),
+                                   Validators.minLength(3),
+                                   Validators.maxLength(20),
                                    Validators.pattern(this.namePattern)]),
+     lastName: new FormControl(null, [  // NAME
+                                  Validators.required,
+                                  Validators.minLength(3),
+                                  Validators.maxLength(25),
+                                  Validators.pattern(this.namePattern)]),
       email: new FormControl(null,[  // EMAIL
                                    Validators.required,
                                    Validators.email,
@@ -80,7 +81,8 @@ export class SignUpComponent implements OnInit {
     let newUser = new User(
       this.signUpForm.value.name,
       this.signUpForm.value.email,
-      this.signUpForm.value.password
+      this.signUpForm.value.password,
+      this.signUpForm.value.lastName
     );
 
     this._user.createUser(newUser)
@@ -90,6 +92,6 @@ export class SignUpComponent implements OnInit {
            this.router.navigate(['/signin']);
         })
      });
-  } 
+  }
 
 }
