@@ -249,7 +249,7 @@
         }
       };
       win.on("touchmove", tick);
-      win.on("scroll", tick);
+      win.on("scroll", tick, {passive:true});
       win.on("resize", recalc_and_tick);
       $(document.body).on("sticky_kit:recalc", recalc_and_tick);
       elm.on("sticky_kit:detach", detach);

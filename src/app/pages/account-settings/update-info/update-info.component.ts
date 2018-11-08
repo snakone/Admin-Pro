@@ -22,13 +22,8 @@ export class UpdateInfoComponent implements OnInit {
   ngOnInit() {
     this.areYouFromGoogle = this._user.user.google;
     this.user = this._user.user;
-    console.log(this.user.google)
+    console.log("Google: " + this.user.google)
     this.createSignUpForm();
-    // this.updateForm.valueChanges.pipe(debounceTime(1000))
-    //   .subscribe(() => {
-    //     this.updateForm.valid ? this.disabled = false : this.disabled = true;
-    //     this.updateForm.value.name && this.updateForm.value.email ? this.clean = false : this.clean = true;
-    //   });
   }
 
   createSignUpForm():void {
@@ -50,15 +45,20 @@ export class UpdateInfoComponent implements OnInit {
   }
 
   onSubmitProfile(){
-    // console.log("Nombre en el form: " + this.updateForm.value.name);
+    console.log("Nombre en el form: " + this.updateForm.value.name);
     if (!this.user.google){
       this.user.email = this.updateForm.value.email;
     }
-    this._user.updateUser(this.updateForm.value.name, this.user.email, this.updateForm.value.lastName)
+
+    this.user.name = this.updateForm.value.name;
+    this.user.email = this.user.email;
+    this.user.lastName = this.updateForm.value.lastName;
+
+    this._user.updateUser(this.user)
      .subscribe(res => {
        this._user.user.name = res.name;
        this._user.user.lastName = res.lastName;
-       // console.log("Nombre respuesta Servidor FINAL: " + res.name);
+       console.log("Nombre respuesta Servidor FINAL: " + res.name);
          Swal('Muy bien!', 'Usuario actualizado satisfactoriamente', 'success')
          // Swal('Error!', 'Por favor, comprueba tus credenciales', 'error');
      });
@@ -67,6 +67,7 @@ export class UpdateInfoComponent implements OnInit {
   resetForm(){
     if (this.user.google){
       this.updateForm.controls['name'].reset();
+      this.updateForm.controls['lastName'].reset();
     } else this.updateForm.reset();
 
   }

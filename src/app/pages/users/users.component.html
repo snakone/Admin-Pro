@@ -1,0 +1,70 @@
+<div class="animated fadeIn slower">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form #searchUser="ngForm">
+            <input #search type="text" class="form-control"
+             name="searchValue" placeHolder="Buscar Usuario..." id="search">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Usuarios registrados (<small>{{totalUsers}}</small>)</h4>
+          <h6 class="card-subtitle">Aquí puedes cambiar tu información personal</h6>
+          <div *ngIf="!searching" class="center back-next hidden-md-up">
+            <button [disabled]="from < 10" (click)="changeFrom(-10)"
+            class="btn btn-secondary">Anterior</button>
+            <button [disabled]="from + 10 >= totalUsers" (click)="changeFrom(10)"
+            class="btn btn-secondary">Siguiente</button>
+            <br>
+          </div>
+          <br>
+          <div class="center">
+            <table class="table">
+              <thead>
+                  <th class="text-themecolor">Nombre</th>
+                  <th class="text-themecolor">Imagen</th>
+                  <th class="text-themecolor">Role</th>
+                  <th class="text-themecolor">Auth</th>
+                  <th class="text-themecolor">Editar</th>
+              </thead>
+              <tbody class="animated" id="rows">
+                <tr *ngFor="let user of users">
+                  <td><strong>{{user.name}}</strong></td>
+                  <td><img (click)="openDialog(user)" [src]="user.image | image" class="profile-picture img-circle"/></td>
+                  <td>
+                    <select [(ngModel)]="user.role" name="role" class="form-control no-padding">
+                      <option style="text-align:center" value="ADMIN_ROLE">Admin</option>
+                      <option style="text-align:center" value="USER_ROLE">User</option>
+                    </select>
+                  </td>
+                  <td>
+                    <label *ngIf="user.google" class="label label-danger">Google</label>
+                    <label *ngIf="!user.google" class="label label-info">Normal</label>
+                  </td>
+                  <td>
+                    <i (click)="saveUser(user)" class="fa fa-save"></i>
+                    <i (click)="deleteUser(user)" class="fa fa-trash-o"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="!searching" class=" center back-next">
+            <button [disabled]="from < 10" (click)="changeFrom(-10)"
+            class="btn btn-secondary">Anterior</button>
+            <button [disabled]="from + 10 >= totalUsers" (click)="changeFrom(10)"
+            class="btn btn-secondary">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

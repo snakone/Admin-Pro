@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,6 +18,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
+// Material
+import { MatDialogModule } from '@angular/material/dialog';
+
 // Components
 import { MoreLessComponent } from '../components/more-less/more-less.component';
 import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-chart.component';
@@ -29,6 +34,10 @@ import { UploadPictureComponent } from './account-settings/update-info/upload-pi
 
 // Pipes
 import { PipeModule } from '../pipes/pipe.module';
+import { UsersComponent } from './users/users.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+import { ImageDialogComponent } from '../components/image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -45,7 +54,11 @@ import { PipeModule } from '../pipes/pipe.module';
     ProfileComponent,
     ThemePickerComponent,
     UpdateInfoComponent,
-    UploadPictureComponent
+    UploadPictureComponent,
+    UsersComponent,
+    HospitalsComponent,
+    DoctorsComponent,
+    ImageDialogComponent
   ],
   imports: [
     CommonModule,
@@ -54,11 +67,19 @@ import { PipeModule } from '../pipes/pipe.module';
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
-    PipeModule
+    PipeModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   exports: [
-    PipeModule
+    PipeModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    UploadPictureComponent
   ],
+  entryComponents: [
+    ImageDialogComponent
+  ]
 
 })
 

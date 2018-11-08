@@ -16,6 +16,15 @@ export class SidebarService {
         { title: "Promises", URL: '/promises'},
         { title: "Rxjs", URL: '/rxjs'}
       ]
+    },
+    {
+      title: "Administrar",
+      icon: "mdi mdi-folder-lock-open",
+      subMenu: [
+        { title: "Usuarios", URL: '/users' },
+        { title: "Hospitales", URL: '/hospitals' },
+        { title: "Doctores", URL: '/doctors'}
+      ]
     }
   ];
 

@@ -6,8 +6,8 @@
 
 .center {
   display: flex;
-   flex-flow: row wrap;
-   justify-content: center;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 ul {
@@ -16,7 +16,27 @@ ul {
 
 .selector {
   border-radius: 5px;
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 35px;
+  max-height: 35px;
   margin: auto 1px;
+}
+
+
+@media (max-width:1216px) and (min-width:992px) {
+  .selector {
+    max-width: 22px;
+    max-height: 22px;
+  }
+
+  .working:before {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width:1431px) and (min-width:1216px) {
+  .selector {
+    max-width: 26px;
+    max-height: 26px;
+  }
 }

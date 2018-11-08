@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { MatDialog } from '@angular/material';  // Dialog
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { Inject } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/services.index';
 import Swal from 'sweetalert2'
 
-import { MatDialog } from '@angular/material';  // Dialog
-
 @Component({
-  selector: 'app-upload-picture',
-  templateUrl: './upload-picture.component.html',
-  styleUrls: ['./update-picture.component.scss']
+  selector: 'app-image-dialog',
+  templateUrl: './image-dialog.component.html',
+  styleUrls: ['./image-dialog.component.scss']
 })
-export class UploadPictureComponent implements OnInit {
 
+export class ImageDialogComponent implements OnInit {
 
   user: User;
   uploadPictureForm: FormGroup;
@@ -35,7 +37,7 @@ export class UploadPictureComponent implements OnInit {
                                      Validators.required,
                                      Validators.minLength(4),
                                      Validators.maxLength(69),
-                                      Validators.pattern(this.imagePattern)])
+                                     Validators.pattern(this.imagePattern)])
     });
   }
 
@@ -56,9 +58,8 @@ export class UploadPictureComponent implements OnInit {
 }
   }
 
-  onSubmitPicture( ){
+  onSubmitPicture(){
     this._user.changePicture(this.fileToUpload, this.user['_id'])
-    this.dialog.closeAll();
   }
 
 }

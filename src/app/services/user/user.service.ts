@@ -14,6 +14,9 @@ import Swal from 'sweetalert2'
 
 export class UserService {
 
+  user: User;  // User from Mongo, ID -> _id
+  token: string;
+  auth2: any;
   readonly API_USER = URL_SERVICES + '/users';
 
   constructor(private http: HttpClient,
@@ -22,12 +25,22 @@ export class UserService {
     this.loadStoreUserData()
  }
 
-  user: User;  // User from Mongo, ID -> _id
-  token: string;
-  auth2: any;
+  getUserList(from: number){
+    return this.http.get(URL_SERVICES + '/users?offset=' + from);
+  }
+
+  searchUser(value: string){
+    return this.http.get(URL_SERVICES + '/search/data/users/' + value)
+    .pipe(map((res:any) => res.users));
+  }
+
+  deleteUser(id: string){
+    return this.http.delete(URL_SERVICES + `/users/${id}?token=${this.token}`)
+  }
+
 
   saveUserToLocalStorage(id: string, token: string, user: User):void{
-    // console.log("Nombre guardar localStorage: " + user.name);
+    console.log("Nombre guardar localStorage: " + user.name);
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
@@ -46,24 +59,21 @@ export class UserService {
   }
 
   createUser(user: User):Observable<any>{
-    // console.log(user)
+    console.log(user)
     return this.http.post(this.API_USER, user);
   }
 
-  updateUser(name: string, email: string, lastName: string){
-    // console.log("Nombre en el Servicio: " + name);
-    let data = {
-      name: name,
-      email: email,
-      lastName: lastName
-    }
+  updateUser(user: User){
+    console.log("Nombre en el Servicio: " + user.name);
 
-    return this.http.put(URL_SERVICES + `/users/${this.user['_id']}?token=${this.token}`, data)
+    return this.http.put(URL_SERVICES + `/users/${user._id}?token=${this.token}`, user)
      .pipe(map((data:any)=> {
-         let updatedUser: User = data.user;
-         // console.log("Nombre de Respuesta: " + updatedUser.name);
-         this.saveUserToLocalStorage(updatedUser['_id'], this.token, updatedUser);
-         return updatedUser;
+         if (user._id === this.user._id) {
+           let updatedUser: User = data.user;
+           this.saveUserToLocalStorage(updatedUser._id, this.token, updatedUser);
+         }
+         console.log("Nombre de Respuesta: " + data.user.name);
+         return data.user;
      }));
 
   }
@@ -107,7 +117,7 @@ export class UserService {
        this.user.image = res.updatedUser.image;
        Swal('Muy bien!', 'Imagen actualizada', 'success');
        this.saveUserToLocalStorage(id, this.token, this.user);
-console.log(this.user)
+       console.log(this.user)
      }).catch(err => {
        console.log(err)
      })

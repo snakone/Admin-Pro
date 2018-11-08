@@ -1,4 +1,22 @@
 <div class="animated fadeIn slower">
-  <app-update-info></app-update-info>
-  <app-theme-picker></app-theme-picker>
+  <div class="row">
+      <div class="col-lg-6">
+        <app-update-info></app-update-info>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+              <app-theme-picker></app-theme-picker>
+          <br>
+              <h4 class="card-title">Fotografía</h4>
+              <h6 class="card-subtitle">Muestra tu fotografía al mundo!</h6>
+              <div class="center">
+                <button class="btn btn-primary btn-info btn-block"
+                (click)="openDialog()">Cambiar Foto</button>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>

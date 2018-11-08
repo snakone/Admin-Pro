@@ -1,0 +1,40 @@
+<mat-dialog-content>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Foto de perfil</h4>
+      <h6 class="card-subtitle">¿Te ves diferente? Cambia tu foto!</h6>
+        <div class="row center">
+          <img *ngIf="!temporalImage" [src]="user.image | image" atl="User Image"/>
+          <img *ngIf="temporalImage" [src]="temporalImage" atl="User Image"/>
+        </div>
+        <div class="row center">
+        <form [formGroup]="uploadPictureForm" (ngSubmit)="onSubmitPicture()"
+          class="floating-labels p-t-20">
+            <div class="form-group">  <!-- NAME -->
+              <div class="form-group has-feedback m-b-20"
+                [ngClass]="uploadPictureForm.controls.image.invalid == true ?
+                          'has-danger' : 'has-success'">
+                  <div class="input-group center">
+                    <label for="file-upload" class="custom-file-upload hover">
+                      Selecciona una Foto <i class="material-icons">image_search</i>
+                    </label>
+                    <input type="file" accept=".png, .jpg, .jpeg" formControlName="image"
+                    id="file-upload" (change)="uploading($event, $event.target.files[0])" name="image"
+                    [ngClass]="uploadPictureForm.controls.image.invalid == true ?
+                            'form-control-danger' : 'form-control-success'"
+                    class="form-control form-control-danger">
+                  </div>
+              </div>
+            </div>
+
+            <div class="center">
+              <button [mat-dialog-close]="true" (click)="onSubmitPicture()"
+              class="btn btn-info btn-block waves-effect waves-light"
+              [disabled]="!fileToUpload || uploadPictureForm.invalid">
+                Actualizar</button>
+            </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -11,6 +11,9 @@ import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UserRouteGuard } from '../services/services.index';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 
 const PagesRoutes: Routes = [
   {
@@ -40,6 +43,15 @@ const PagesRoutes: Routes = [
       { path: 'settings', component: AccountSettingsComponent,
         data: { page: "Ajustes", content:"Cuenta"} },
 
+      // Admin Routes
+      { path: 'users', component: UsersComponent,
+        data: { page: "Usuarios", content:"Mantenimiento"} },
+
+      { path: 'hospitals', component: HospitalsComponent,
+        data: { page: "Hospitales", content:"Mantenimiento"} },
+        
+      { path: 'doctors', component: DoctorsComponent,
+        data: { page: "Doctores", content:"Mantenimiento"} },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },

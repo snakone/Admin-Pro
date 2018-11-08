@@ -1,1 +1,26 @@
+button {
+  margin-top: 25px;
+  margin-bottom: 27px;
+}
 
+h4 {
+  margin-top: 20px;
+}
+
+@media (max-width:1431px) and (min-width:992px) {
+  h4 {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width:1431px) and (min-width:1216px) {
+  button {
+    margin-top: 21px;
+  }
+}
+
+@media (min-width:1431px){
+  button {
+    margin-top: 19px;
+  }
+}

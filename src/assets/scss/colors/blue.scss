@@ -11,7 +11,7 @@ $themecolor-dark: #028ee1;
 $topbar: #1976d2;
 $topbar-alt: #ffffff;
 $themecolor-alt: #26c6da;
-$sidebar-icons: #a6b7bf; 
+$sidebar-icons: #a6b7bf;
 
 /*******************
 /*Top bar
@@ -22,15 +22,15 @@ $sidebar-icons: #a6b7bf;
     .navbar-header{
         background: $topbar-alt;
     }
-    
-    
+
+
     .top-navbar .navbar-header .navbar-brand .light-logo{
         display: none;
         color:rgba(255, 255, 255, 0.8);
     }
     .navbar-light .navbar-nav .nav-item > {
         a.nav-link {
-           
+
             color: $white!important;
             &:hover,
             &:focus {
@@ -127,14 +127,14 @@ a.link {
 *******************/
 
 .label-themecolor{
-    background:$themecolor; 
+    background:$themecolor;
 }
 
 .sidebar-nav>ul>li.active>a {
     color: $themecolor;
     border-color: $themecolor;
     i {
-       color: $themecolor; 
+       color: $themecolor;
     }
 }
 
@@ -144,7 +144,7 @@ a.link {
       color: $themecolor;
       i {
         color: $themecolor;
-      }    
+      }
     }
 }
 

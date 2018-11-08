@@ -16,7 +16,6 @@ export class UserRouteGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this._user.areYouOnline()){
-      console.log("Paso el Guard!");
       return true;
     }
       console.log("Bloqueado por el Guard");
