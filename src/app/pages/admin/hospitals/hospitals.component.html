@@ -1,0 +1,61 @@
+<div class="animated fadeIn slower">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form #searchHospital="ngForm">
+            <input #search type="text" class="form-control"
+             name="searchValue" placeHolder="Buscar Hospital..." id="search">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Hospitales registrados (<small><strong>{{totalHospitals}}</strong></small>)</h4>
+          <h6 class="card-subtitle">Aquí puedes administrar Hospitales</h6>
+          <div>
+            <button (click)="openHospitalDialog()" type="button"
+             class="btn waves-effect waves-light btn-rounded btn-success create">
+             CREAR HOSPITAL
+            </button>
+          </div>
+          <br>
+            <div class="flex animated" id="rows">
+              <div *ngFor="let hospital of hospitals" class="hospital-card">
+                <div class="card card-danger-info">
+                  <div class="card-header bg-theme">
+                  <h4 class="m-b-0 text-white">{{hospital.name}}</h4></div>
+                    <div class="card-body shadow text-center hvr-underline-from-left">
+                      <p class="card-text">
+                      <img (click)="openImageDialog(hospital)" [src]="hospital.image | image:'hospitals'"
+                        class="profile-picture"
+                        data-toggle="tooltip" data-placement="top" title="Cambiar"/>
+                      </p>
+
+                      <p>
+                        <i (click)="editHospital(hospital)" class="fa fa-edit"
+                        data-toggle="tooltip" data-placement="bottom" title="Editar"></i>
+                        <i (click)="deleteHospital(hospital)" class="fa fa-trash-o"
+                        data-toggle="tooltip" data-placement="bottom" title="Borrar"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+             </div>
+
+          <div *ngIf="totalHospitals > limit  && !searching" class=" center back-next">
+            <button [disabled]="from < limit" (click)="changeFrom(-limit)"
+            class="btn btn-secondary">Anterior</button>
+            <button [disabled]="from + limit >= totalHospitals" (click)="changeFrom(limit)"
+            class="btn btn-secondary">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

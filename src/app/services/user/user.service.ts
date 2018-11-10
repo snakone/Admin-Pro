@@ -38,7 +38,6 @@ export class UserService {
     return this.http.delete(URL_SERVICES + `/users/${id}?token=${this.token}`)
   }
 
-
   saveUserToLocalStorage(id: string, token: string, user: User):void{
     console.log("Nombre guardar localStorage: " + user.name);
     localStorage.setItem('id', id);
@@ -59,7 +58,6 @@ export class UserService {
   }
 
   createUser(user: User):Observable<any>{
-    console.log(user)
     return this.http.post(this.API_USER, user);
   }
 
@@ -81,7 +79,7 @@ export class UserService {
   signInUser(userSignIn: User, remember: boolean):Observable<any>{
     return this.http.post(URL_SERVICES + '/login', userSignIn)
     .pipe(map((res:any) => {   // NORMAL SIGN UP
-        this.saveUserToLocalStorage(res.id,res.token,res.user);
+        this.saveUserToLocalStorage(res._id,res.token,res.user);
         remember ? localStorage.setItem('email', res.user.email) :
         localStorage.removeItem('email');
         return res;  // Return The User Who Signed In
@@ -91,7 +89,7 @@ export class UserService {
   googleSignIn(token){  // GOOGLE SIGN UP
     return this.http.post(URL_SERVICES + '/login/google', {token})
      .pipe(map((res:any) => {
-       this.saveUserToLocalStorage(res.id,res.token,res.user);
+       this.saveUserToLocalStorage(res._id,res.token,res.user);
        return true;   // Return Sign In OK
      }));
   }
@@ -114,10 +112,11 @@ export class UserService {
   changePicture(file: File, id: string){
     this._uploadFile.uploadFile(file, 'users', id)
      .then((res:any) => {
-       this.user.image = res.updatedUser.image;
        Swal('Muy bien!', 'Imagen actualizada', 'success');
-       this.saveUserToLocalStorage(id, this.token, this.user);
-       console.log(this.user)
+        if (res.updatedUser._id === this.user._id) {
+            this.user.image = res.updatedUser.image;
+            this.saveUserToLocalStorage(this.user._id, this.token, this.user);
+          }
      }).catch(err => {
        console.log(err)
      })

@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Editar Usuario</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Aquí puedes editar la información del usuario</p>
+  <h3><strong>Usuario</strong>: {{user.name}}</h3>
+  <form>
+    <label>Rol Usuario</label>
+    <select [(ngModel)]="user.role" name="role"
+       class="form-control">
+       <option value="ADMIN_ROLE">Admin</option>
+       <option value="USER_ROLE">User</option>
+     </select>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+
+  <button type="button" (click)="updateUser()"
+  class="btn btn-primary btn-success">EDITAR</button>
+</mat-dialog-actions>

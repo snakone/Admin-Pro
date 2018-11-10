@@ -11,9 +11,9 @@ import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UserRouteGuard } from '../services/services.index';
 import { ProfileComponent } from './profile/profile.component';
-import { UsersComponent } from './users/users.component';
-import { HospitalsComponent } from './hospitals/hospitals.component';
-import { DoctorsComponent } from './doctors/doctors.component';
+import { UsersComponent } from './admin/users/users.component';
+import { HospitalsComponent } from './admin/hospitals/hospitals.component';
+import { DoctorsComponent } from './admin/doctors/doctors.component';
 
 const PagesRoutes: Routes = [
   {
@@ -21,9 +21,9 @@ const PagesRoutes: Routes = [
     component: PagesComponent,
     canActivate: [UserRouteGuard],
     children: [
-
+      // Send Data to Router so We know anytime where are We.
       { path: 'dashboard', component: DashboardComponent,
-        data: { page: "Dashboard", content:"Principal"}  // Send Data to Router so We know anytime where are We.
+        data: { page: "Dashboard", content:"Principal"}
       },
       { path: 'profile', component: ProfileComponent,
         data: { page: "Perfil", content:"Cuenta"}
@@ -49,7 +49,7 @@ const PagesRoutes: Routes = [
 
       { path: 'hospitals', component: HospitalsComponent,
         data: { page: "Hospitales", content:"Mantenimiento"} },
-        
+
       { path: 'doctors', component: DoctorsComponent,
         data: { page: "Doctores", content:"Mantenimiento"} },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

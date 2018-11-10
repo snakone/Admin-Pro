@@ -15,13 +15,12 @@ import { ServicesModule } from './services/services.module'
 import { SignInComponent } from './login/signin/signin.component';
 import { SignUpComponent } from './login/signup/signup.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     SignUpComponent,
+
   ],
   imports: [
     BrowserModule,

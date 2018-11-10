@@ -1,0 +1,56 @@
+<div class="animated fadeIn slower">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form #searchUser="ngForm">
+            <input #search type="text" class="form-control"
+             name="searchValue" placeHolder="Buscar Usuario..." id="search">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card" style="overflow:hidden">
+        <div class="card-body">
+          <h4 class="card-title">Usuarios registrados (<small><strong>{{totalUsers}}</strong></small>)</h4>
+          <h6 class="card-subtitle">Aquí puedes administrar Usuarios</h6>
+          <br>
+          <div class="flex animated" id="rows">
+            <div *ngFor="let user of users" class="user-card">
+              <div class="card card-danger-info">
+                <div class="card-header bg-theme">
+                <h4 class="m-b-0 text-white">{{user.name}}</h4></div>
+                  <div class="card-body shadow text-center hvr-underline-from-left">
+                    <p class="card-text">
+                    <img (click)="openImageDialog(user)" [src]="user.image | image"
+                      class="profile-picture img-circle"
+                      data-toggle="tooltip" data-placement="top" title="Cambiar"/>
+                    </p>
+                    <label *ngIf="user.google" class="label label-danger">Google</label>
+                    <label *ngIf="!user.google" class="label label-info">Normal</label>
+                    <p>
+                      <i (click)="editUser(user)" class="fa fa-edit"
+                      data-toggle="tooltip" data-placement="bottom" title="Editar"></i>
+                      <i (click)="deleteUser(user)" class="fa fa-trash-o"
+                      data-toggle="tooltip" data-placement="bottom" title="Borrar"></i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+           </div>
+
+           <div *ngIf="totalUsers > limit && !searching" class=" center back-next">
+            <button [disabled]="from < limit" (click)="changeFrom(-limit)"
+            class="btn btn-secondary">Anterior</button>
+            <button [disabled]="from + limit >= totalUsers" (click)="changeFrom(limit)"
+            class="btn btn-secondary">Siguiente</button>
+          </div>
+          </div>
+        </div>
+     </div>
+    </div>
+</div>

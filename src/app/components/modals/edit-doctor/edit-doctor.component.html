@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Editar Doctor</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Aquí puedes editar la información del Doctor</p>
+  <h3><strong>Doctor</strong>: {{doctor.name}}</h3>
+  <form [formGroup]="doctorForm"
+    class="floating-labels p-t-20">
+      <div class="form-group">  <!-- NAME -->
+        <div class="form-group has-feedback m-b-20"
+          [ngClass]="doctorForm.controls.name.invalid == true ?
+           'has-danger' : 'has-success'">
+            <div class="input-group">
+          <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="text" formControlName="name" name="name"
+          [ngClass]="doctorForm.controls.name.invalid == true ?
+           'form-control-danger' : 'form-control-success'"
+            class="form-control form-control-danger">  </div>
+        </div>
+      </div>
+
+      <div class="form-group">  <!-- ADDRESS -->
+        <div class="form-group has-feedback m-b-20"
+          [ngClass]="doctorForm.controls.lastName.invalid == true ?
+           'has-danger' : 'has-success'">
+            <div class="input-group">
+          <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="text" formControlName="lastName" name="lastName"
+          [ngClass]="doctorForm.controls.lastName.invalid == true ?
+           'form-control-danger' : 'form-control-success'"
+            class="form-control form-control-danger">  </div>
+        </div>
+  </div>
+</form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+
+  <button type="button" (click)="updateDoctor()"
+  class="btn btn-primary btn-success">EDITAR</button>
+  <button type="button" (click)="closeModal()"
+  class="btn btn-primary btn-error">CANCELAR</button>
+</mat-dialog-actions>

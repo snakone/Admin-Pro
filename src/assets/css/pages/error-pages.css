@@ -31,7 +31,8 @@ Error Page
 .error-body {
   padding-top: 5%; }
   .error-body h1 {
-    font-size: 210px;
+    font-size: 200px;
     font-weight: 900;
     text-shadow: 4px 4px 0 #ffffff, 6px 6px 0 #263238;
-    line-height: 210px; }
+    line-height: 210px;
+    margin-bottom: 65px;}

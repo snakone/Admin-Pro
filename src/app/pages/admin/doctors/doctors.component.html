@@ -1,0 +1,61 @@
+<div class="animated fadeIn slower">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form #searchDoctor="ngForm">
+            <input #search type="text" class="form-control"
+             name="searchValue" placeHolder="Buscar Doctor..." id="search">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Doctores registrados (<small><strong>{{totalDoctors}}</strong></small>)</h4>
+          <h6 class="card-subtitle">Aquí puedes administrar Doctores</h6>
+          <div>
+            <button (click)="openDoctorDialog()" type="button"
+             class="btn waves-effect waves-light btn-rounded btn-success create">
+             REGISTRAR DOCTOR
+            </button>
+          </div>
+          <br>
+            <div class="flex animated" id="rows">
+              <div *ngFor="let doctor of doctors" class="doctor-card">
+                <div class="card card-danger-info">
+                  <div class="card-header bg-theme">
+                  <h4 class="m-b-0 text-white">{{doctor.name | doctorName}}</h4></div>
+                    <div class="card-body shadow text-center hvr-underline-from-left">
+                      <p class="card-text">
+                      <img (click)="openImageDialog(doctor)" [src]="doctor.image | image:'doctors'"
+                        class="profile-picture img-circle"
+                        data-toggle="tooltip" data-placement="top" title="Cambiar"/>
+                      </p>
+                      <label *ngIf="doctor.hospital" class="label label-info">{{doctor.hospital.name}}</label>
+                      <p>
+                        <i (click)="editDoctor(doctor)" class="fa fa-edit"
+                        data-toggle="tooltip" data-placement="bottom" title="Editar"></i>
+                        <i (click)="deleteDoctor(doctor)" class="fa fa-trash-o"
+                        data-toggle="tooltip" data-placement="bottom" title="Borrar"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+             </div>
+
+          <div *ngIf="totalDoctors > limit && !searching" class=" center back-next">
+            <button [disabled]="from < limit" (click)="changeFrom(-limit)"
+            class="btn btn-secondary">Anterior</button>
+            <button [disabled]="from + limit >= totalDoctors" (click)="changeFrom(limit)"
+            class="btn btn-secondary">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

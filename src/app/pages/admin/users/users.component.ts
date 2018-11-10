@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/services.index';
 import { debounceTime, map } from 'rxjs/operators';
@@ -6,7 +6,9 @@ import { fromEvent } from 'rxjs';
 import Swal from 'sweetalert2'
 
 import { MatDialog } from '@angular/material';  // Material Dialog
-import { ImageDialogComponent } from 'src/app/components/image-dialog/image-dialog.component';
+import { EditPictureComponent } from 'src/app/components/modals/edit-picture/edit-picture.component';
+import { EditUserComponent } from 'src/app/components/modals/edit-user/edit-user.component';
+import { LIMIT } from 'src/app/config/config';
 
 @Component({
   selector: 'app-users',
@@ -23,11 +25,15 @@ export class UsersComponent implements OnInit {
   from: number = 0;
   totalUsers: number = 0;
   searching: boolean = false;
+  limit: number;
+  options: ScrollToOptions;
 
   ngOnInit() {
+    this.limit = LIMIT;
     this.getUsers();
     const input = document.getElementById('search');
     this.listenInputChanges(input);
+
   }
 
   listenInputChanges(input: HTMLElement){
@@ -41,40 +47,45 @@ export class UsersComponent implements OnInit {
           this._user.searchUser(res)
             .subscribe( (users: User[]) => {
               this.users = users;
+              this.searching = true;
             });
         } else {
           this.getUsers();
           this.searching = false;
-          return;
+          return false;
         }
       });
   }
 
   getUsers(amount?:number){
-    if (amount == 10 && this.totalUsers - this.from == 1) {
+    if (amount == LIMIT && this.totalUsers - this.from == 1 && this.from !=0) {
       this.from = (this.totalUsers - 1 ) - amount;
     }
       this._user.getUserList(this.from)
        .subscribe((res:any) => {
          this.users = res.users;
+          console.log(this.users.length)
          this.totalUsers = res.userCount;
        });
   }
 
-  saveUser(user:User){
-    console.log(user)
-    this._user.updateUser(user)
-     .subscribe(() => {
-       Swal('Operación aceptada', 'Usuario editado', 'info');
-     })
+  editUser(user:User){
+  this.dialog.open(EditUserComponent,{data:user});  // New Dialog
   }
 
-  openDialog(user:User){
-    const dialogRef = this.dialog.open(ImageDialogComponent,{data:user});  // New Dialog
+  openImageDialog(user:User){
+    let data = {
+      _id: user._id,
+      collection: 'User'
+    }
+
+    const dialogRef = this.dialog.open(EditPictureComponent,{data:data});  // New Dialog
 
     dialogRef.afterClosed().subscribe(result => { // After Dialog Closed
     if (result) {
-          this.getUsers();
+      setTimeout(() => {   // Wait a bit to get Updated Data Again
+         this.getUsers();
+      }, 1500)
       }  // End of If (result)
     });
   }
@@ -98,7 +109,7 @@ export class UsersComponent implements OnInit {
           this._user.deleteUser(user._id)
            .subscribe(() => {
              Swal('Operación aceptada', 'Usuario borrado', 'info');
-             this.getUsers(10);
+             this.getUsers(LIMIT);
            });
         }
       });
@@ -106,27 +117,32 @@ export class UsersComponent implements OnInit {
 
   changeFrom(value: number){
     let rows = document.getElementById("rows").classList;
-    if (value === 10){
+    if (value === LIMIT){
         rows.add("slideOutLeft");
         rows.remove("slideInRight","slideInLeft");
         setTimeout(()=> {
           rows.remove("slideOutLeft");
           rows.add("slideInRight");
-        }, 1000);
+        }, 1200);
     }
-    else if (value === -10) {
+    else if (value === -LIMIT) {
         rows.add("slideOutRight");
         rows.remove("slideInRight", "slideInLeft");
         setTimeout(()=> {
           rows.remove("slideOutRight");
           rows.add("slideInLeft");
-        }, 1000);
+        }, 1200);
     }
 
     let from = this.from + value;
     if (from >= this.totalUsers || from < 0) return false;
     this.from += value;
-    this.getUsers();
+      setTimeout(()=> {
+        this.getUsers();
+      this.options = {top:200, left:0, behavior: 'smooth'};
+      window.scrollTo(this.options);
+      }, 1000)
+
   }
 
 }

@@ -4,8 +4,8 @@
       <h4 class="card-title">Foto de perfil</h4>
       <h6 class="card-subtitle">¿Te ves diferente? Cambia tu foto!</h6>
         <div class="row center">
-          <img *ngIf="!temporalImage" [src]="user.image | image" atl="User Image"/>
-          <img *ngIf="temporalImage" [src]="temporalImage" atl="User Image"/>
+          <img *ngIf="!temporalImage" [src]="random | image" atl="Image"/>
+          <img *ngIf="temporalImage" [src]="temporalImage" atl="Image"/>
         </div>
         <div class="row center">
         <form [formGroup]="uploadPictureForm" (ngSubmit)="onSubmitPicture()"

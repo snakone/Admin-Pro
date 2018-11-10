@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Editar Hospital</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Aquí puedes editar la información del Hospital</p>
+  <h3><strong>Hospital</strong>: {{hospital.name}}</h3>
+  <form [formGroup]="hospitalForm"
+    class="floating-labels p-t-20">
+      <div class="form-group">  <!-- NAME -->
+        <div class="form-group has-feedback m-b-20"
+          [ngClass]="hospitalForm.controls.name.invalid == true ?
+           'has-danger' : 'has-success'">
+            <div class="input-group">
+          <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="text" formControlName="name" name="name"
+          [ngClass]="hospitalForm.controls.name.invalid == true ?
+           'form-control-danger' : 'form-control-success'"
+            class="form-control form-control-danger">  </div>
+        </div>
+      </div>
+
+      <div class="form-group">  <!-- ADDRESS -->
+        <div class="form-group has-feedback m-b-20"
+          [ngClass]="hospitalForm.controls.address.invalid == true ?
+           'has-danger' : 'has-success'">
+            <div class="input-group">
+          <div class="input-group-addon"><i class="ti-user"></i></div>
+            <input type="text" formControlName="address" name="address"
+          [ngClass]="hospitalForm.controls.address.invalid == true ?
+           'form-control-danger' : 'form-control-success'"
+            class="form-control form-control-danger">  </div>
+        </div>
+  </div>
+</form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+
+  <button type="button" (click)="updateHospital()"
+  class="btn btn-primary btn-success">EDITAR</button>
+  <button type="button" (click)="closeModal()"
+  class="btn btn-primary btn-error">CANCELAR</button>
+</mat-dialog-actions>

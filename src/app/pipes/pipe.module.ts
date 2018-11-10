@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { ImagesPipe } from './images/images.pipe';
+import { DoctorNamePipe } from './doctors/doctor-name.pipe';
+import { AddressPipe } from './hospitals/address.pipe';
 
 @NgModule({
   imports: [ ],
   declarations: [
-    ImagesPipe
+    ImagesPipe,
+    DoctorNamePipe,
+    AddressPipe
   ],
   exports: [
-    ImagesPipe
+    ImagesPipe,
+    DoctorNamePipe,
+    AddressPipe
   ]
 })
 

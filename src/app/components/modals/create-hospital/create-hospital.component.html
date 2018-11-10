@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Crear Hospital</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Aquí puedes crear un Hospital, por favor rellena los datos</p>
+    <form [formGroup]="hospitalForm"
+      class="floating-labels p-t-20">
+        <div class="form-group">  <!-- NAME -->
+          <div class="form-group has-feedback m-b-20"
+            [ngClass]="hospitalForm.controls.name.invalid == true ?
+             'has-danger' : 'has-success'">
+              <div class="input-group">
+            <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input type="text" formControlName="name" name="name"
+            [ngClass]="hospitalForm.controls.name.invalid == true ?
+             'form-control-danger' : 'form-control-success'"
+              class="form-control form-control-danger">  </div>
+          </div>
+        </div>
+
+        <div class="form-group">  <!-- ADDRESS -->
+          <div class="form-group has-feedback m-b-20"
+            [ngClass]="hospitalForm.controls.address.invalid == true ?
+             'has-danger' : 'has-success'">
+              <div class="input-group">
+            <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input type="text" formControlName="address" name="address"
+            [ngClass]="hospitalForm.controls.address.invalid == true ?
+             'form-control-danger' : 'form-control-success'"
+              class="form-control form-control-danger">  </div>
+          </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button type="submit" (click)="onSubmit()" [mat-dialog-close]="true"
+  [disabled]="hospitalForm.invalid" class="btn btn-primary btn-success">
+  CREAR
+  </button>
+  <button type="button" (click)="closeModal()"
+  class="btn btn-primary btn-error">CANCELAR</button>
+</mat-dialog-actions>

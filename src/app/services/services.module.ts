@@ -7,7 +7,9 @@ import { SettingsService,
          SidebarService,
          UserService,
          UploadFileService,
-         UserRouteGuard} from './services.index';
+         UserRouteGuard,
+         HospitalService,
+         DoctorService} from './services.index';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { SettingsService,
     SidebarService,
     UserService,
     UploadFileService,
-    UserRouteGuard
+    UserRouteGuard,
+    HospitalService,
+    DoctorService
   ]
 })
 

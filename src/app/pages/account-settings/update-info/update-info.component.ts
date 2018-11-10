@@ -28,11 +28,11 @@ export class UpdateInfoComponent implements OnInit {
 
   createSignUpForm():void {
     this.updateForm = new FormGroup({
-        name: new FormControl(this.user.name, [  // PASSWORD
+        name: new FormControl(this.user.name, [  // NAME
                                      Validators.required,
                                      Validators.minLength(3),
                                      Validators.maxLength(20)]),
-        lastName: new FormControl(this.user.lastName, [  // PASSWORD
+        lastName: new FormControl(this.user.lastName, [  // LASTNAME
                                      Validators.required,
                                      Validators.minLength(3),
                                      Validators.maxLength(20)]),

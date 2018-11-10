@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
-import { MatDialog } from '@angular/material';  // Dialog
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { Inject } from '@angular/core';
-import { User } from 'src/app/models/user.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/services.index';
+import { UserService, HospitalService, DoctorService } from 'src/app/services/services.index';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-image-dialog',
-  templateUrl: './image-dialog.component.html',
-  styleUrls: ['./image-dialog.component.scss']
+  selector: 'app-edit-picture',
+  templateUrl: './edit-picture.component.html',
+  styleUrls: ['./edit-picture.component.scss']
 })
 
-export class ImageDialogComponent implements OnInit {
+export class EditPictureComponent implements OnInit {
 
-  user: User;
   uploadPictureForm: FormGroup;
   disabled: boolean = false;
   fileToUpload: File;
@@ -24,11 +20,13 @@ export class ImageDialogComponent implements OnInit {
   imagePattern: string = "^.+\.(([pP][nN][gG])|([jJ][pP][gG]))$";
 
   constructor(private _user: UserService,
-              public dialog: MatDialog) { }
+              private _hospital: HospitalService,
+              private _doctor: DoctorService,
+              @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    this.user = this._user.user;
     this.createSignUpForm();
+    console.log(this.data)
   }
 
   createSignUpForm():void {
@@ -59,7 +57,13 @@ export class ImageDialogComponent implements OnInit {
   }
 
   onSubmitPicture(){
-    this._user.changePicture(this.fileToUpload, this.user['_id'])
+    console.log(this.data)
+    if (this.data.collection == "User")
+    this._user.changePicture(this.fileToUpload, this.data._id);
+    if (this.data.collection == "Hospital")
+    this._hospital.changePicture(this.fileToUpload, this.data._id);
+    if (this.data.collection == "Doctor")
+    this._doctor.changePicture(this.fileToUpload, this.data._id);
   }
 
 }

@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages.routes';
+
+import { ModalsModule } from '../components/modals/modals.module';
 
 // Pages
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,8 +21,15 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
-// Material
-import { MatDialogModule } from '@angular/material/dialog';
+// Account Settings
+import { ThemePickerComponent } from './account-settings/theme-picker/theme-picker.component';
+import { UpdateInfoComponent } from './account-settings/update-info/update-info.component';
+import { UploadPictureComponent } from './account-settings/update-info/upload-picture/upload-picture.component';
+
+// Admin
+import { UsersComponent } from './admin/users/users.component';
+import { HospitalsComponent } from './admin/hospitals/hospitals.component';
+import { DoctorsComponent } from './admin/doctors/doctors.component';
 
 // Components
 import { MoreLessComponent } from '../components/more-less/more-less.component';
@@ -27,17 +37,9 @@ import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-ch
 
 // 3rd Libraries
 import { ChartsModule } from 'ng2-charts';
-import { ThemePickerComponent } from './account-settings/theme-picker/theme-picker.component';
-import { UpdateInfoComponent } from './account-settings/update-info/update-info.component';
-import { CommonModule } from '@angular/common';
-import { UploadPictureComponent } from './account-settings/update-info/upload-picture/upload-picture.component';
 
 // Pipes
 import { PipeModule } from '../pipes/pipe.module';
-import { UsersComponent } from './users/users.component';
-import { HospitalsComponent } from './hospitals/hospitals.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { ImageDialogComponent } from '../components/image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -57,8 +59,7 @@ import { ImageDialogComponent } from '../components/image-dialog/image-dialog.co
     UploadPictureComponent,
     UsersComponent,
     HospitalsComponent,
-    DoctorsComponent,
-    ImageDialogComponent
+    DoctorsComponent
   ],
   imports: [
     CommonModule,
@@ -69,18 +70,15 @@ import { ImageDialogComponent } from '../components/image-dialog/image-dialog.co
     ChartsModule,
     PipeModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    ModalsModule
   ],
   exports: [
     PipeModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    UploadPictureComponent
-  ],
-  entryComponents: [
-    ImageDialogComponent
+    ReactiveFormsModule,
+    FormsModule,
+    ModalsModule
   ]
-
 })
 
 export class PagesModule { }
