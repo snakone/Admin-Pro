@@ -44,7 +44,7 @@ export class CreateDoctorComponent implements OnInit {
                                     Validators.minLength(3),
                                     Validators.maxLength(25),
                                     Validators.pattern(this.namePattern)]),
-        hospital: new FormControl(null, [])
+        hospital: new FormControl('', [Validators.required])
       });
     }
 
@@ -59,12 +59,16 @@ export class CreateDoctorComponent implements OnInit {
       );
 
       this._doctor.createDoctor(newDoctor)
-       .subscribe(res => {
+       .subscribe(() => {
          Swal('Felicidades!', 'Doctor creado satisfactoriamente', 'success')
           .then(() => {
             this.dialog.closeAll();
           })
        });
+    }
+
+    closeModal():void {
+      this.dialog.closeAll();
     }
 
   }

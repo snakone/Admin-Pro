@@ -32,7 +32,7 @@ export class HospitalsComponent implements OnInit {
   ngOnInit() {
     this.limit = LIMIT;
     this.getHospitals();
-    const input = document.getElementById('search');
+    const input = document.getElementById('searchHospital');
     this.listenInputChanges(input);
   }
 

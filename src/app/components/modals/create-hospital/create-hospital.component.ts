@@ -49,7 +49,7 @@ export class CreateHospitalComponent implements OnInit {
     );
 
     this._hospital.createHospital(newHospital)
-     .subscribe(res => {
+     .subscribe(() => {
        Swal('Felicidades!', 'Hospital creado satisfactoriamente', 'success')
      });
   }

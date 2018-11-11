@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.limit = LIMIT;
     this.getUsers();
-    const input = document.getElementById('search');
+    const input = document.getElementById('searchUser');
     this.listenInputChanges(input);
 
   }

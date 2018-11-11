@@ -8,8 +8,9 @@
             [ngClass]="hospitalForm.controls.name.invalid == true ?
              'has-danger' : 'has-success'">
               <div class="input-group">
-            <div class="input-group-addon"><i class="ti-user"></i></div>
-              <input type="text" formControlName="name" name="name"
+            <div class="input-group-addon"><i class="ti-home"></i></div>
+              <input type="text" placeholder="Nombre Hospital"
+              formControlName="name" name="name"
             [ngClass]="hospitalForm.controls.name.invalid == true ?
              'form-control-danger' : 'form-control-success'"
               class="form-control form-control-danger">  </div>
@@ -21,8 +22,9 @@
             [ngClass]="hospitalForm.controls.address.invalid == true ?
              'has-danger' : 'has-success'">
               <div class="input-group">
-            <div class="input-group-addon"><i class="ti-user"></i></div>
-              <input type="text" formControlName="address" name="address"
+            <div class="input-group-addon"><i class="ti-direction-alt"></i></div>
+              <input type="text" placeholder="Calle Hospital"
+              formControlName="address" name="address"
             [ngClass]="hospitalForm.controls.address.invalid == true ?
              'form-control-danger' : 'form-control-success'"
               class="form-control form-control-danger">  </div>

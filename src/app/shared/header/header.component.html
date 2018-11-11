@@ -19,13 +19,14 @@
       <li class="nav-item search-box">  <!-- Search Bar -->
         <a class="nav-link waves-effect waves-dark"><i class="ti-search"></i></a>
           <form class="app-search">
-              <input type="text" class="form-control" placeholder="Search & enter">
+              <input type="text" id="search" #value class="form-control"
+               style="margin-left:-1px" placeholder="¿Qué estás buscando?">
                 <a class="srh-btn"><i class="ti-close"></i></a>
           </form>
       </li>
 
       <li class="nav-item dropdown">  <!-- Email Icon -->
-          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2"
+          <a class="nav-link dropdown-toggle waves-effect waves-dark"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="mdi mdi-email"></i>
               <div class="notify">
@@ -33,7 +34,7 @@
                 <span class="point"></span>
               </div>
           </a>
-          <div class="dropdown-menu mailbox dropdown-menu-right animated fadeInDown faster" aria-labelledby="2">
+          <div class="dropdown-menu mailbox dropdown-menu-right animated fadeInDown faster">
             <ul>  <!-- Message BOX -->
               <li>
                   <div class="drop-title">You have 4 new messages</div>
@@ -103,8 +104,8 @@
           <a class="nav-link dropdown-toggle waves-effect waves-dark"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img [src]="_user.user.image | image" alt="user" class="profile-pic"/>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right animated fadeInDown faster">  <!-- Profile Drop Menu -->
+          </a> <!-- Profile Drop Menu -->
+          <div class="dropdown-menu dropdown-menu-right animated fadeInDown faster">
               <ul class="dropdown-user">
                   <li>
                       <div class="dw-user-box">
@@ -130,7 +131,8 @@
 
                   <li role="separator" class="divider"></li>
 
-                  <li><a class="logout" (click)="logOut()"><i class="material-icons">exit_to_app</i>Salir</a></li>
+                  <li><a class="logout" (click)="logOut()">
+                    <i class="material-icons">exit_to_app</i>Salir</a></li>
               </ul>
           </div>
       </li>

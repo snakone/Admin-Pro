@@ -32,7 +32,7 @@ export class DoctorsComponent implements OnInit {
   ngOnInit() {
     this.limit = LIMIT;
     this.getDoctors();
-    const input = document.getElementById('search');
+    const input = document.getElementById('searchDoctor');
     this.listenInputChanges(input);
   }
 
@@ -54,7 +54,7 @@ export class DoctorsComponent implements OnInit {
           return false;
         }
       });
-  }
+   }
 
   getDoctors(amount?:number){
     if (amount == LIMIT && this.totalDoctors - this.from == 1 && this.from !=0) {

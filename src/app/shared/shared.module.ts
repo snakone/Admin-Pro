@@ -6,15 +6,17 @@ import { RouterModule } from '@angular/router';
 import { BreadCrumsComponent } from './breadcrums/breadcrums.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { PipeModule } from '../pipes/pipe.module';
+import { PipesModule } from '../pipes/pipes.module';
 import { Error404Component } from './error404/error404.component';
+import { ModalsModule } from '../components/modals/modals.module';
 
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
-    PipeModule
+    PipesModule,
+    ModalsModule
   ],
   declarations: [
     BreadCrumsComponent,
@@ -27,7 +29,8 @@ import { Error404Component } from './error404/error404.component';
     HeaderComponent,
     SidebarComponent,
     Error404Component,
-    PipeModule
+    PipesModule,
+    ModalsModule
   ]
 })
 

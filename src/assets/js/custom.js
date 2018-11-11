@@ -4,6 +4,13 @@ Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: js
 */
+
+function close_preloader(){
+	$(function() {
+			$(".preloader").fadeOut();
+		});
+}
+
 function closeSideBar(){
 	$(function() {
 		"use strict";

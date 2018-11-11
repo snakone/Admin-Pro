@@ -51,7 +51,7 @@ export class EditDoctorComponent implements OnInit {
     this.doctor.lastName = this.doctorForm.value.lastName;
 
     this._doctor.updateDoctor(this.doctor)
-     .subscribe(res => {
+     .subscribe(() => {
        Swal('Operación aceptada', 'Doctor actualizado', 'info')
         .then(()=> {
           this.dialog.closeAll();

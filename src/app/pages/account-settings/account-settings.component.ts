@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { SettingsService, UserService } from 'src/app/services/services.index';
+import { UserService } from 'src/app/services/services.index';
 import { MatDialog } from '@angular/material';  // Material Dialog
 import { EditPictureComponent } from 'src/app/components/modals/edit-picture/edit-picture.component';
 import { User } from 'src/app/models/user.model';
@@ -14,8 +14,7 @@ export class AccountSettingsComponent implements OnInit {
 
   user: User;
 
-  constructor(private _settings: SettingsService,
-              private _user: UserService,
+  constructor(private _user: UserService,
               public dialog: MatDialog) { }
 
   ngOnInit() {

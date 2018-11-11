@@ -5,7 +5,7 @@
         <div class="card-body">
           <form #searchHospital="ngForm">
             <input #search type="text" class="form-control"
-             name="searchValue" placeHolder="Buscar Hospital..." id="search">
+             name="searchValue" placeHolder="Buscar Hospital..." id="searchHospital">
           </form>
         </div>
       </div>
@@ -48,12 +48,19 @@
                 </div>
              </div>
 
-          <div *ngIf="totalHospitals > limit  && !searching" class=" center back-next">
-            <button [disabled]="from < limit" (click)="changeFrom(-limit)"
-            class="btn btn-secondary">Anterior</button>
-            <button [disabled]="from + limit >= totalHospitals" (click)="changeFrom(limit)"
-            class="btn btn-secondary">Siguiente</button>
-          </div>
+             <div *ngIf="hospitals.length == 0 && !searching" class="text-center">
+               No hay ningún <strong>hospital</strong> registrado
+             </div>
+             <div *ngIf="hospitals.length == 0 && searching" class="text-center">
+                Ningún <strong>hospital</strong> coincide con tu búsqueda.
+             </div>
+
+            <div *ngIf="totalHospitals > limit  && !searching" class=" center back-next">
+              <button [disabled]="from < limit" (click)="changeFrom(-limit)"
+              class="btn btn-secondary">Anterior</button>
+              <button [disabled]="from + limit >= totalHospitals" (click)="changeFrom(limit)"
+              class="btn btn-secondary">Siguiente</button>
+            </div>
         </div>
       </div>
     </div>

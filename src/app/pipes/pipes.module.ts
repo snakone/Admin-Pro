@@ -17,4 +17,4 @@ import { AddressPipe } from './hospitals/address.pipe';
   ]
 })
 
-export class PipeModule { }
+export class PipesModule { }

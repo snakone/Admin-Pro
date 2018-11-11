@@ -26,7 +26,7 @@ export class EditUserComponent implements OnInit {
 
   updateUser(){
     this._user.updateUser(this.user)
-     .subscribe(res => {
+     .subscribe(() => {
        Swal('Operación aceptada', 'Usuario actualizado', 'info')
         .then(()=> {
           this.dialog.closeAll();

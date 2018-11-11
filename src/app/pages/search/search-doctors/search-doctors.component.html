@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12">
+      <div class="card-body">
+        <div class="flex animated" *ngIf="doctors.length > 0">
+          <div *ngFor="let doctor of doctors" class="doctor-card">
+            <div class="card card-danger-info">
+              <div class="card-header bg-theme">
+              <h4 class="m-b-0 text-white">{{doctor.name}}</h4></div>
+                <div class="card-body shadow text-center hvr-underline-from-left">
+                  <p class="card-text">
+                  <img (click)="openImageDialog(doctor)"
+                    [src]="doctor.image | image:'doctors'"
+                    class="profile-picture img-circle"
+                    data-toggle="tooltip" data-placement="top" title="Cambiar"/>
+                  </p>
+                </div>
+              </div>
+            </div>
+         </div>
+
+         <div *ngIf="doctors.length == 0" class="text-center">
+           Ningún <strong>doctor</strong> coincide con tu búsqueda.
+         </div>
+
+        </div>
+  </div>
+</div>

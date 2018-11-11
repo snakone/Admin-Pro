@@ -7,6 +7,18 @@ img {
   max-height: 150px;
 }
 
+.card-body {
+  padding: 0!important;
+}
+
+mat-dialog-content {
+  padding: 0!important;
+  margin: 0!important;
+  overflow: hidden;
+  margin-bottom: 0!important;
+  max-height: 58vh;
+}
+
 .big-font {
   font-size: 3em;
   color: $themecolor;

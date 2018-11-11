@@ -8,7 +8,7 @@ import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
 import { EditPictureComponent } from './edit-picture/edit-picture.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Pipes
-import { PipeModule } from '../../pipes/pipe.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 // Material
 import { MatDialogModule } from '@angular/material/dialog';
@@ -19,7 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    PipeModule,
+    PipesModule,
   ],
   declarations: [
     EditUserComponent,

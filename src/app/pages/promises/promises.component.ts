@@ -19,7 +19,7 @@ export class PromisesComponent implements OnInit {
   }
 
   count(): Promise<boolean> {  // Function that Returns a Promise
-    return new Promise ((res, req) => {  // Resolve, Reject
+    return new Promise (res => {  // Resolve, Reject
       let count = 0;
       let interval = setInterval(()=> {
         count++

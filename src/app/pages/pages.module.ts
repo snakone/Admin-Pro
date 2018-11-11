@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages.routes';
 
-import { ModalsModule } from '../components/modals/modals.module';
+// Admin
+import { AdminModule } from './admin/admin.module';
+
+// Search
+import { SearchModule } from './search/search.module';
 
 // Pages
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 // ProfileComponent
 import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -26,11 +28,6 @@ import { ThemePickerComponent } from './account-settings/theme-picker/theme-pick
 import { UpdateInfoComponent } from './account-settings/update-info/update-info.component';
 import { UploadPictureComponent } from './account-settings/update-info/upload-picture/upload-picture.component';
 
-// Admin
-import { UsersComponent } from './admin/users/users.component';
-import { HospitalsComponent } from './admin/hospitals/hospitals.component';
-import { DoctorsComponent } from './admin/doctors/doctors.component';
-
 // Components
 import { MoreLessComponent } from '../components/more-less/more-less.component';
 import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-chart.component';
@@ -38,13 +35,9 @@ import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-ch
 // 3rd Libraries
 import { ChartsModule } from 'ng2-charts';
 
-// Pipes
-import { PipeModule } from '../pipes/pipe.module';
-
 
 @NgModule({
   declarations: [
-    PagesComponent,
     DashboardComponent,
     ProgressComponent,
     ChartComponent,
@@ -56,10 +49,7 @@ import { PipeModule } from '../pipes/pipe.module';
     ProfileComponent,
     ThemePickerComponent,
     UpdateInfoComponent,
-    UploadPictureComponent,
-    UsersComponent,
-    HospitalsComponent,
-    DoctorsComponent
+    UploadPictureComponent
   ],
   imports: [
     CommonModule,
@@ -68,16 +58,8 @@ import { PipeModule } from '../pipes/pipe.module';
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
-    PipeModule,
-    BrowserAnimationsModule,
-    ModalsModule
-  ],
-  exports: [
-    PipeModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    ModalsModule
+    AdminModule,
+    SearchModule
   ]
 })
 

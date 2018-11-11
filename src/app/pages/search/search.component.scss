@@ -1,0 +1,13 @@
+.antiMarginTop {
+  margin-top: -20px;
+}
+
+::ng-deep .mat-tab-label {
+  min-width: auto;
+  max-width: 85px!important;
+  padding: 0 24px!important;
+}
+
+::ng-deep .mat-tab-body-content {
+  overflow: hidden !important;
+}

@@ -1,34 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// Custom Modules
-import { PagesModule } from './pages/pages.module';
 
 // Services
 import { ServicesModule } from './services/services.module'
 
 import { SignInComponent } from './login/signin/signin.component';
 import { SignUpComponent } from './login/signup/signup.component';
+import { PagesComponent } from './pages/pages.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     SignUpComponent,
-
+    PagesComponent
   ],
   imports: [
     BrowserModule,
-    PagesModule,  // Load Pages first with Child Routes
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ServicesModule
+    ServicesModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

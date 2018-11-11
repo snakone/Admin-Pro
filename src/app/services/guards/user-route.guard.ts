@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -13,8 +12,8 @@ export class UserRouteGuard implements CanActivate {
               private router: Router) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    _next: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot): boolean {
     if (this._user.areYouOnline()){
       return true;
     }

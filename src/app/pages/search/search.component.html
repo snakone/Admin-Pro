@@ -1,0 +1,22 @@
+<div class="antiMarginTop">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab">Usuarios</span>
+        </ng-template>
+        <app-search-users [users]="users"></app-search-users>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab">Hospitales</span>
+        </ng-template>
+        <app-search-hospitals [hospitals]="hospitals"></app-search-hospitals>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab">Doctores</span>
+        </ng-template>
+        <app-search-doctors [doctors]="doctors"></app-search-doctors>
+    </mat-tab>
+</mat-tab-group>
+</div>

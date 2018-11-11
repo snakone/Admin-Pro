@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._user.user;
+    this._sidebar.loadMenu();
     closeSideBar();  // Close SideBar on Init to reset the State.
   }
 
